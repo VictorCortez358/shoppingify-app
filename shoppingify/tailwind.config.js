@@ -15,6 +15,10 @@ module.exports = {
       screens:{
         'md': '425px',
         'lg': '1024px'
+      },
+      width:{
+        'sidebar': '15%',
+        'shoppingList': '85%'
       }
     },
   },
