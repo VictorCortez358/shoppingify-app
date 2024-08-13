@@ -7,7 +7,7 @@ import { useSidebarState } from '@/hooks/useSidebarState';
 
 const ItemList = () => {
 
-    const openItem = useOpenItem((state) => state.toggle);  // Fixed typo 'toogle' to 'toggle'
+    const openItem = useOpenItem((state) => state.toggle);  
     const toggleList = useSidebarState((state) => state.toggle);
 
     const shoppingList = [
@@ -79,10 +79,10 @@ const ItemList = () => {
                                     <li 
                                         onClick={handleClick}
                                         key={product.id} 
-                                        className="w-min flex justify-between items-center gap-4 p-2"
+                                        className="w-min cursor-pointer bg-white border border-white rounded-md shadow-sm flex justify-center items-center gap-4 p-2 px-6"
                                     >
-                                        <p className="text-black text-xs md:text-base">{product.name}</p>
-                                        <Image src={PlusIcon} alt="plus icon" className="w-4 h-4" />
+                                        <p className="text-black text-xs font-medium md:text-base">{product.name}</p>
+                                        <Image src={PlusIcon} alt="plus icon" className="ml-4    w-5 h-5" />
                                     </li>
                                 ))}
                             </ul>

@@ -15,17 +15,15 @@ export default function Home() {
 
     return (
         <Layout>
-            <div className="flex flex-col items-center justify-between px-4 md:px-12">
-                <div className="w-full md:flex md:flex-row md:justify-between md:items-center md:gap-4 my-4">
-                    <h2 className="text-black text-lg font-medium md:text-2xl">
+            <div className="w-full px-2 flex flex-col items-center justify-between md:px-12">
+                <div className="w-full flex flex-col md:flex md:flex-row md:justify-between md:items-center md:gap-4 my-4">
+                    <h2 className="md:w-2/3 text-black text-lg font-bold md:text-2xl">
                         <span className="text-[#F9A109]">Shoppingify </span>{""}
                         allows you to take your shopping list wherever you go
                     </h2>
                     <Search 
-                        className='hidden md:block'
-                        placeholder="input search text" onSearch={onSearch} style={{
-                            width: '40%',
-                        }} />
+                        className='w-full mt-4 md:w-1/3'
+                        placeholder="input search text" onSearch={onSearch}  />
                 </div>
                 <ItemList />
             </div>

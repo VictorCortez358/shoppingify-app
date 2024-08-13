@@ -19,14 +19,14 @@ const Sidebar = ({ toggleList }) => {
     const pathname = usePathname();
 
     return (
-        <div className="w-auto flex flex-col justify-between items-center my-2 lg:w-auto">
-            <Image src={Icon} alt="logo" className="h-8 w-8" />
+        <div className="w-auto flex flex-col justify-between items-center py-4 lg:w-auto">
+            <Image src={Icon} alt="logo" className="h-8 w-8 mx-2 md:mx-4" />
             <div className="flex flex-col gap-12 mr-auto">
                 {options.map((option) => (
                     <Tooltip key={option.id} title={option.name} placement="right">
                         <div className="flex items-center gap-2">
-                            <span className={`${pathname === option.path ? 'bg-[#F9A109]' : ''} w-1 rounded-r-full h-8`}></span>
-                            <Image src={option.icon} alt={option.name} className="w-6 h-6" />
+                            <span className={`${pathname === option.path ? 'bg-[#F9A109]' : ''} w-1 md:w-[5px] md:h-10 rounded-r-full h-8`}></span>
+                            <Image src={option.icon} alt={option.name} className="w-6 h-6 md:w-7 md:h-7" />
                         </div>
                     </Tooltip>
                 ))}
