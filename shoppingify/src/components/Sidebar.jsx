@@ -7,7 +7,7 @@ import List from "../../public/list.svg";
 import Stadistics from "../../public/stadistics.svg";
 import Shopping_car from "../../public/shopping_car.svg";
 import { Tooltip } from "antd";
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 const options = [
     { id: 1, icon: List, path: "/", name: "items" },
@@ -17,6 +17,7 @@ const options = [
 
 const Sidebar = ({ toggleList }) => {
     const pathname = usePathname();
+    const router = useRouter();
 
     return (
         <div className="w-auto flex flex-col justify-between items-center py-4 lg:w-auto">
@@ -24,7 +25,9 @@ const Sidebar = ({ toggleList }) => {
             <div className="flex flex-col gap-12 mr-auto">
                 {options.map((option) => (
                     <Tooltip key={option.id} title={option.name} placement="right">
-                        <div className="flex items-center gap-2">
+                        <div 
+                            onClick={() => router.push(option.path)}
+                            className="flex items-center gap-2">
                             <span className={`${pathname === option.path ? 'bg-[#F9A109]' : ''} w-1 md:w-[5px] md:h-10 rounded-r-full h-8`}></span>
                             <Image src={option.icon} alt={option.name} className="w-6 h-6 md:w-7 md:h-7" />
                         </div>
