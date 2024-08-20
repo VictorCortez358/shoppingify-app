@@ -1,10 +1,13 @@
-import React from 'react'
+'use client';
 import BackRow from '../../../../public/back_row.svg'
 import Image from 'next/image'
 import Layout from '@/components/Layout'
 import DateIcon from '../../../../public/date.svg'
+import { useRouter } from 'next/navigation'
 
 export default function HistoryItem() {
+
+    const router = useRouter();
 
     const shoppingList = [
         {
@@ -64,7 +67,9 @@ export default function HistoryItem() {
     return (
         <Layout>
             <div className='w-full flex flex-col items-start gap-2 text-black md:px-12'>
-                <div className='cursor-pointer w-auto flex flex-row items-center justify-center gap-1 my-4'>
+                <div 
+                    onClick={() => router.back()}
+                    className='cursor-pointer w-auto flex flex-row items-center justify-center gap-1 my-4'>
                     <Image src={BackRow} alt='back row' className='w-6 h-6' />
                     <p className='text-base font-medium text-[#F9A109] md:text-lg'>back</p>
                 </div>

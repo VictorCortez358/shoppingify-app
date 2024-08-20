@@ -12,7 +12,7 @@ import { usePathname, useRouter } from 'next/navigation';
 const options = [
     { id: 1, icon: List, path: "/", name: "items" },
     { id: 2, icon: History, path: "/history", name: "history" },
-    { id: 3, icon: Stadistics, path: "/stadistics", name: "statistics" },
+    { id: 3, icon: Stadistics, path: "/statistics", name: "statistics" },
 ];
 
 const Sidebar = ({ toggleList }) => {
