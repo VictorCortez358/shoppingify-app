@@ -12,3 +12,48 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  lists     List[]
+}
+
+model List {
+  id        String   @id @default(cuid())
+  title     String
+  state     State    @default(IN_PROGRESS)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  items     Item[]
+}
+
+model Item {
+  id        String   @id @default(cuid())
+  name      String
+  note      String?
+  image     String?
+  category  String
+  quantity  Int      @default(1)
+  done      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  listId    String
+  list      List     @relation(fields: [listId], references: [id])
+}
+
+enum State {
+  COMPLETED
+  IN_PROGRESS
+  CANCELLED
+}
+
+
+
+
